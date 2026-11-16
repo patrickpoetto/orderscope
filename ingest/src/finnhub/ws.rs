@@ -61,7 +61,7 @@ pub fn connect(config: FinnhubWsConfig) -> BoxStream<'static, Event> {
                     let mut subscribe_failed = false;
                     for sym in &config.symbols {
                         let sub = serde_json::json!({ "type": "subscribe", "symbol": sym.as_str() });
-                        if ws.send(Message::Text(sub.to_string().into())).await.is_err() {
+                        if ws.send(Message::Text(sub.to_string())).await.is_err() {
                             subscribe_failed = true;
                             break;
                         }

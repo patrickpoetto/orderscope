@@ -32,10 +32,8 @@ mod tests {
     #[test]
     fn accumulates_delta_across_bars_in_time_order() {
         let mut bars = BTreeMap::new();
-        let mut b1 = FootprintBar::default();
-        b1.volume = Volume::BuySell(10.0, 4.0); // delta +6
-        let mut b2 = FootprintBar::default();
-        b2.volume = Volume::BuySell(2.0, 9.0); // delta -7
+        let b1 = FootprintBar { volume: Volume::BuySell(10.0, 4.0), ..Default::default() }; // delta +6
+        let b2 = FootprintBar { volume: Volume::BuySell(2.0, 9.0), ..Default::default() }; // delta -7
         bars.insert(UnixMs(0), b1);
         bars.insert(UnixMs(60_000), b2);
 
