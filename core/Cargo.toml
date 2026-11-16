@@ -1,0 +1,8 @@
+[package]
+name = "orderscope-core"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+serde.workspace = true
+smallvec.workspace = true

@@ -1,0 +1,42 @@
+[workspace]
+members = ["core", "ingest", "analytics", "model"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+[workspace.dependencies]
+orderscope-core = { path = "core" }
+orderscope-ingest = { path = "ingest" }
+orderscope-analytics = { path = "analytics" }
+orderscope-model = { path = "model" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time"] }
+tokio-tungstenite = { version = "0.24", features = ["native-tls"] }
+futures-util = "0.3"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+smallvec = "1"
+async-stream = "0.3"
+dotenvy = "0.15"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+
+[package]
+name = "orderscope"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+orderscope-core.workspace = true
+orderscope-ingest.workspace = true
+orderscope-analytics.workspace = true
+orderscope-model.workspace = true
+tokio.workspace = true
+dotenvy.workspace = true
+chrono.workspace = true
+iced = { version = "0.13", features = ["canvas", "tokio"] }
+
+[[bin]]
+name = "orderscope"
+path = "src/main.rs"

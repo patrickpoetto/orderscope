@@ -1,0 +1,7 @@
+[package]
+name = "orderscope-analytics"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+orderscope-core.workspace = true

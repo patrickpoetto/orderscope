@@ -1,0 +1,9 @@
+/target
+**/target
+
+# Environment files with secrets (e.g. FINNHUB_API_KEY)
+.env
+*.env
+
+# macOS
+.DS_Store
